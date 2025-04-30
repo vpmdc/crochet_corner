@@ -1,0 +1,7 @@
+__pychache__
+.env
+.venv
+listreqs
+.DS_Store
+*.pyc
+listreqs.py
