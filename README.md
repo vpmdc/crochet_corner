@@ -11,6 +11,7 @@ Finding high quality crochet patterns that align with your skill level and style
 -   Poorly formatted PDFs
 -   Patterns mismatched to your yarn or tools
 
+\
 **CrochetCorner** solves this by helping you search, convert, and learn — all through one conversational intervalse.
 
 ## Key Features

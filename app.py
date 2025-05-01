@@ -24,7 +24,7 @@ async def function_invocation_filter(context: FunctionInvocationContext, next):
     function_name = context.function.name if context.function else "Unknown"
     args = context.arguments.get("user_message", "[no 'user_message' argument]")
 
-    # Format arguments for display
+    # Format arguments
     try:
         args_display = json.dumps(args, indent=4, default=str) if isinstance(args, (dict, list)) else str(args)
     except Exception:
@@ -35,7 +35,7 @@ async def function_invocation_filter(context: FunctionInvocationContext, next):
     current_step.language = "json"
     current_step.start = datetime.now(timezone.utc).isoformat()
 
-    # Log the function name and input arguments
+    # Log function name, input arguments
     await current_step.stream_token(f"Function Name: `{function_name}`\n")
     await current_step.stream_token("Arguments:")
     await current_step.stream_token(f"{args_display}\n")
@@ -87,6 +87,10 @@ triage_agent = ChatCompletionAgent(
 @cl.on_message
 async def on_message(message: cl.Message):
     try:
+        global thread
+        if thread is None:
+            thread = ChatHistoryAgentThread()  
+        
         async with azure_openai_lock:
             response = await triage_agent.get_response(
                 messages=message.content,
@@ -95,7 +99,6 @@ async def on_message(message: cl.Message):
         await cl.Message(content=str(response)).send()
     except Exception as e:
         await cl.Message(content=f"⚠️ An error occurred: {e}").send()
-
 
 
 @cl.set_starters
