@@ -1,6 +1,7 @@
 # CrochetCorner 🧶
 
 **CrochetCorner** is an AI-agent powered assistant designed to help you **find**, **learn**, and **execute** crochet patterns with ease. Whether you're a beginner or a seasoned crocheter, CrochetCorner can make your creative process smoother, more accessible and more enjoyable.
+![CrochetCornerMain](images/main_image.png)
 
 ### Why CrochetCorner?
 
@@ -11,7 +12,6 @@ Finding high quality crochet patterns that align with your skill level and style
 -   Poorly formatted PDFs
 -   Patterns mismatched to your yarn or tools
 
-\
 **CrochetCorner** solves this by helping you search, convert, and learn — all through one conversational intervalse.
 
 ## Key Features
@@ -25,6 +25,9 @@ Search for crochet patterns based on:
 -   Difficulty level
 -   Style or theme
 -   Author
+
+\
+![Pattern search](images/pattern_search.png)
 
 ---
 
@@ -48,6 +51,7 @@ Receive real time crochet assistance:
 ## Architecture Overview
 
 CrochetCorner is built using **Semantic Kernel**, a framework that enables dynamic orchestration of AI skills through plugins.
+![Architeccture diagram](images/architecture_diagram.png)
 
 ### Core Components
 
